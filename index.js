@@ -147,7 +147,7 @@ class Instructor extends Lambdasian {
   }
 
   gradeII(student){
-    let addsub = Math.round(Math.random);
+    let addsub = Math.round(Math.random());
     if (addsub === 0){
       student.grade = Math.round( student.grade - student.grade * Math.random());
     } else {
