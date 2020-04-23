@@ -145,6 +145,15 @@ class Instructor extends Lambdasian {
   grade(student, subject){
     return `${student.name} receives a perfect score on ${subject}`;
   }
+
+  gradeII(student){
+    let addsub = Math.round(Math.random);
+    if (addsub === 0){
+      student.grade = Math.round( student.grade - student.grade * Math.random());
+    } else {
+      student.grade = Math.round(student.grade + (100 - student.grade) * Math.random());
+    }
+  }
 }
 
 /*
@@ -163,11 +172,12 @@ class Instructor extends Lambdasian {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student extends Lambdasian {
-  constructor(object){
+  constructor(object, grade){
     super(object);
     this.previousBackground = object.previousBackground;
     this.className = object.className;
     this.favSubjects = object.favSubjects;
+    this.grade = 50;
   }
 
   listSubjects(){
@@ -180,6 +190,14 @@ class Student extends Lambdasian {
 
   sprintChallenge(subject){
     return `${this.name} has begun spring challenge on ${subject}`;
+  }
+
+  graduate(){
+    if (this.grade > 70){
+      return `${this.name} has graduated!`
+    } else {
+      return `${this.name} is still learning!`
+    }
   }
 }
 
@@ -207,7 +225,7 @@ class ProjectManager extends Instructor {
   }
 
   debugsCode(studobj, subject){
-    return `${this.name} debugs ${studobj.name}'s code on ${subject}`
+    return `${this.name} debugs ${studobj.name}'s code on ${subject}`;
   }
 }
 
