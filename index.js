@@ -150,8 +150,10 @@ class Instructor extends Lambdasian {
     let addsub = Math.round(Math.random());
     if (addsub === 0){
       student.grade = Math.round( student.grade - student.grade * Math.random());
+      return student.grade;
     } else {
       student.grade = Math.round(student.grade + (100 - student.grade) * Math.random());
+      return student.grade;
     }
   }
 }
@@ -177,7 +179,7 @@ class Student extends Lambdasian {
     this.previousBackground = object.previousBackground;
     this.className = object.className;
     this.favSubjects = object.favSubjects;
-    this.grade = 50;
+    this.grade = grade;
   }
 
   listSubjects(){
